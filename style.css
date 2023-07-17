@@ -1,0 +1,13 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+section {
+    width: 600px;
+    background-color: blue;
+    
+}
+aside {
+    
+}
