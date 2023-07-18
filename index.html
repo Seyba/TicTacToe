@@ -10,15 +10,30 @@
 <body>
     <h1>Tic Tac Toe Game</h1>
     <div class="wrapper">
-        <section>
+        <section id="board">
+            <div class="row1" id="row1">
+                <div class="cell" cell-data></div>
+                <div class="cell" cell-data></div>
+                <div class="cell" cell-data></div>
+            </div>
+            <div class="row2" id="row2">
+                <div class="cell xShape" cell-data></div>
+                <div class="cell xShape" cell-data></div>
+                <div class="cell xShape" cell-data></div>
+            </div>
+            <div class="row3" id="row3">
+                <div class="cell" cell-data></div>
+                <div class="cell " cell-data></div>
+                <div class="cell" cell-data></div>
+            </div>
             
         </section>
         <aside>
-            
+            <button id="startGame" onclick="startGame()">Start Game</button>
+            <button id="restartGame">Restart Game</button>
         </aside>
+        
+        
     </div>
-
-
-    
 </body>
 </html>

@@ -1,13 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 .wrapper {
     display: flex;
     justify-content: center;
     flex-direction: row;
 }
 section {
-    width: 600px;
-    background-color: blue;
+    display: flex;
+    align-items: center;
+    width: 450px;
+    background-color: lightblue;
+    height: auto;
+    margin-right: 3px;
     
 }
-aside {
-    
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    margin: 5px;
+    justify-content: center;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+/** Making the X and O shape */
+/** CSS pseudo class to get the X and Circle shape*/
+.cell.cell.xShape::before, 
+.cell.cell.xShape::after{
+    content:'';
+    width: 10px;
+    height: 60px;
+    background-color: #ffffff;
+    position: absolute;
+}
+
+.cell.xShape::before{
+    transform: rotate(45deg);
+}
+.cell.cell.xShape::after{
+    transform: rotate(-45deg)
+}
+.cell.circleShape::before, 
+.cell.cell.circleShape::after{
+    content: '';
+    border-radius: 50px;
+    position: absolute;
+}
+
+.cell.circleShape::before{
+    background-color: #ffffff;
+    width: 70px;
+    height: 70px;
+
+}
+.cell.circleShape::after {
+    background-color: #0000ff;
+    width: 50px;
+    height: 50px;    
 }
