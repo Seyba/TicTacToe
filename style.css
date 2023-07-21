@@ -36,10 +36,10 @@ aside {
     align-items: center;
     position: relative;
 }
-/** Making the X and O shape */
+
 /** CSS pseudo class to get the X and Circle shape*/
-.cell.cell.xShape::before, 
-.cell.cell.xShape::after{
+.cell.xShape::before, 
+.cell.xShape::after{
     content:'';
     width: 10px;
     height: 60px;
@@ -72,25 +72,47 @@ aside {
     height: 50px;    
 }
 
+/** Hover effect*/
+/* .cell.cell.xShape::before,
+.cell:not(.xShape):hover::before,
+.cell:not(.xShape):hover::after{
+    background-color: #ff0000;
+
+} */
+
+
 
 
 .msg {
-
-    display: flex;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .9);
+    justify-content: center;
     align-items: center;
-    background-color: lightblue;
-   
-    /* width: 450px;
-    height: auto;
-    margin-right: 3px;
-    justify-content: center; */
-    
+    color: white;
+    font-size: 30px;  
+    flex-direction: column;  
 
 }
-.msg-text {
-   
+.msg button {
+    font-size: 40px;
+    background: #ffffff;
+    border: 1px solid #000000;
+    padding: 10px 50px;
+    cursor: pointer;
 }
-/*
+
+.msg button:hover {
+    background-color: #000000;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+
 .msg.show {
     display: flex;
-} */
+}

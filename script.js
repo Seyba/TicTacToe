@@ -22,12 +22,48 @@ const thirdRow = document.getElementById('row3')
 const startBtn = document.getElementById('startGame')
 const resTartBtn = document.getElementById('restartGame')
 const msg = document.getElementById('msg')
-const msgText = document.getElementById('msg-text')
+const msgText = document.querySelector('[msg-text]')
+
 let isCirclePlayerTurn
 
+// class Player {
+//     constructor(name){
+//         this.name = name;
+//         this.score = score;
+//         this.round = round
+//     }
+
+//     getScore(){
+//         console.log(`${this.name} score is ${this.score}`)
+//     }
+//     getRound(){
+//         console.log(`${this.name} has played ${this.round}`)
+//     }
+// }
+class Player {
+    constructor(name) {
+        this.name = name
+        this.score = 0
+        this.round = 0
+    }
+    getRound(){
+        console.log(`${this.name} has played ${this.round}`)
+    }
+    getScore(){
+        console.log(`${this.name} score is ${this.score}`)
+    }
+    upDateScore(){
+        return this.score += 1
+    }
+    upDateRound(){
+        return this.round += 1
+    }
+}
 
 startGame()
 
+const x = new Player('x')
+console.log(x.round)
 function startGame(){
     console.log('starting game')
     isCirclePlayerTurn = false
@@ -37,40 +73,32 @@ function startGame(){
         cell.removeEventListener('click', handleClick)
         cell.addEventListener('click', handleClick, {once: true})
     })
-    //msgText.innerText = ''
-    //msg.appendChild(msgText)
+    switchPlayer()
+    msg.classList.remove('show')
 }
 
 function handleClick(e){
     const cell = e.target
   
     const currentClass = isCirclePlayerTurn? circlePlayerClass : xPlayerClass
-    cell.classList.add(currentClass)
+    markCell(cell, currentClass)
     switchPlayer()
+    
 
-    if(checkWin(currentClass)){
+    if(checkWin(currentClass)){ 
         endGame(false)
-    } else if(isDraw){
+    } else if (isDraw()){
         endGame(true)
-        //switchPlayer()
-        console.log('it is a draw')
     } else {
-        console.log('game over')
-        switchPlayer()
-       
+        //switchPlayer()
     }
-
-    // if(checkWin(currentClass)){
-    //     endGame(false)
-    // } else if(isDraw) {
-    //     endGame(true)
-    // } else {
-    //     switchPlayer()
-    // }
   
   
 }
-  
+
+function markCell(cell, currentClass){
+    cell.classList.add(currentClass)
+}
 function checkWin(currentClass){
     return winningCombination.some(combination => {
         return combination.every(index => {
@@ -81,12 +109,17 @@ function checkWin(currentClass){
   
   
 function endGame(draw){
+    
     if (draw) {
         msgText.innerText = `It's a draw!`
     } else {
         msgText.innerText = `${isCirclePlayerTurn ? 'Circle wins.':'X wins.'}`
+       console.log(isCirclePlayerTurn)
+        // update player
+        // x.upDateRound()
+        // console.log(x.round )
     }
-    msgText.innerText = ''
+    msg.classList.add('show')
 }
     
 function switchPlayer(){
