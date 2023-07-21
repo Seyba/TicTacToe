@@ -1,6 +1,8 @@
 const xPlayerClass = 'xShape'
 const circlePlayerClass = 'circleShape'
 
+let currentClass = xPlayerClass
+
 const winningCombination = [
     [0, 1, 2],
     [3, 4, 5],
@@ -64,25 +66,26 @@ startGame()
 
 const x = new Player('x')
 console.log(x.round)
+
 function startGame(){
-    console.log('starting game')
     isCirclePlayerTurn = false
+    
     tttCells.forEach(cell => {
         cell.classList.remove('xShape')
         cell.classList.remove('circleShape')
         cell.removeEventListener('click', handleClick)
         cell.addEventListener('click', handleClick, {once: true})
     })
-    switchPlayer()
+    
     msg.classList.remove('show')
+    
 }
 
 function handleClick(e){
     const cell = e.target
   
-    const currentClass = isCirclePlayerTurn? circlePlayerClass : xPlayerClass
+    currentClass = isCirclePlayerTurn? circlePlayerClass : xPlayerClass
     markCell(cell, currentClass)
-    switchPlayer()
     
 
     if(checkWin(currentClass)){ 
@@ -90,9 +93,8 @@ function handleClick(e){
     } else if (isDraw()){
         endGame(true)
     } else {
-        //switchPlayer()
+        switchPlayer()  
     }
-  
   
 }
 
@@ -113,8 +115,7 @@ function endGame(draw){
     if (draw) {
         msgText.innerText = `It's a draw!`
     } else {
-        msgText.innerText = `${isCirclePlayerTurn ? 'Circle wins.':'X wins.'}`
-       console.log(isCirclePlayerTurn)
+        msgText.innerText = `${isCirclePlayerTurn ? 'O wins.': 'X wins.'}`
         // update player
         // x.upDateRound()
         // console.log(x.round )
