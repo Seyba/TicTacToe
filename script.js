@@ -64,8 +64,12 @@ class Player {
 
 startGame()
 
-const x = new Player('x')
+const x = new Player('xShape')
 console.log(x.round)
+const o = new Player('circleShape')
+const userLives = ['x','x','x']
+
+console.log('user life is: ', userLives.length)
 
 function startGame(){
     isCirclePlayerTurn = false
@@ -86,6 +90,7 @@ function handleClick(e){
   
     currentClass = isCirclePlayerTurn? circlePlayerClass : xPlayerClass
     markCell(cell, currentClass)
+    
     
 
     if(checkWin(currentClass)){ 
@@ -117,8 +122,20 @@ function endGame(draw){
     } else {
         msgText.innerText = `${isCirclePlayerTurn ? 'O wins.': 'X wins.'}`
         // update player
-        // x.upDateRound()
+
+         x.upDateRound()
+         console.log(x.round)
         // console.log(x.round )
+        userLives.pop()
+        console.log('user life is : ', userLives.length)
+        if(Player.name ===  xPlayerClass){
+            //msg.classList.remove('show')
+            x.upDateRound()
+            console.log(true)
+
+        } else {
+            console.log(false)
+        }
     }
     msg.classList.add('show')
 }

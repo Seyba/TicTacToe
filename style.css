@@ -2,6 +2,11 @@
     margin: 0;
     padding: 0;
 }
+body {
+    background-image: url('./1600x900-digital-color-shapes_1563221369.jpg');
+    background-size: cover;
+}
+
 .wrapper {
     display: flex;
     justify-content: center;
@@ -28,7 +33,7 @@ aside {
 .cell {
     width: 100px;
     height: 100px;
-    background-color: blue;
+    background-color:   #0b423c;
     margin: 5px;
     justify-content: center;
     padding: 20px;
