@@ -1,8 +1,6 @@
 const xPlayerClass = 'xShape'
 const circlePlayerClass = 'circleShape'
 
-//let currentClass 
-
 const winningCombination = [
     [0, 1, 2],
     [3, 4, 5],
@@ -31,20 +29,6 @@ const score = document.getElementById('score')
 
 let isCirclePlayerTurn
 
-// class Player {
-//     constructor(name){
-//         this.name = name;
-//         this.score = score;
-//         this.round = round
-//     }
-
-//     getScore(){
-//         console.log(`${this.name} score is ${this.score}`)
-//     }
-//     getRound(){
-//         console.log(`${this.name} has played ${this.round}`)
-//     }
-// }
 class Player {
     constructor(name) {
         this.name = name
@@ -69,14 +53,6 @@ startGame()
 
 const x = new Player('xShape')
 const o = new Player('circleShape')
-
-
-// console.log(o.name)
-// console.log(circlePlayerClass)
-
-//console.log('o score is:', o.score)
-
-//console.log('x score is:', x.score)
 
 function startGame(){
     isCirclePlayerTurn = false
@@ -128,21 +104,14 @@ function endGame(draw){
         score.textContent = ''
         
     } else {
-        
-       // msgText.innerText = `${isCirclePlayerTurn ? 'O wins.': 'X wins.'}`
-        // update player
-        
+                
         if(isCirclePlayerTurn){
             msgText.innerText = 'O wins!'
             o.upDateScore()
             score.innerText = `Score: ${o.score}`
             score.classList.add('show')
-            
-            console.log('o updated', o.score)
-            //console.log(true)
-            
+                        
         } else {
-            //console.log('x')
             msgText.innerText = 'X wins!'
             x.upDateScore()
             score.innerText = `Score: ${x.score}`
