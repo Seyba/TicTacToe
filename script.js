@@ -1,7 +1,7 @@
 const xPlayerClass = 'xShape'
 const circlePlayerClass = 'circleShape'
 
-let currentClass = xPlayerClass
+//let currentClass 
 
 const winningCombination = [
     [0, 1, 2],
@@ -25,6 +25,9 @@ const startBtn = document.getElementById('startGame')
 const resTartBtn = document.getElementById('restartGame')
 const msg = document.getElementById('msg')
 const msgText = document.querySelector('[msg-text]')
+const score = document.getElementById('score')
+
+
 
 let isCirclePlayerTurn
 
@@ -65,11 +68,15 @@ class Player {
 startGame()
 
 const x = new Player('xShape')
-console.log(x.round)
 const o = new Player('circleShape')
-const userLives = ['x','x','x']
 
-console.log('user life is: ', userLives.length)
+
+// console.log(o.name)
+// console.log(circlePlayerClass)
+
+//console.log('o score is:', o.score)
+
+//console.log('x score is:', x.score)
 
 function startGame(){
     isCirclePlayerTurn = false
@@ -88,10 +95,8 @@ function startGame(){
 function handleClick(e){
     const cell = e.target
   
-    currentClass = isCirclePlayerTurn? circlePlayerClass : xPlayerClass
+    let currentClass = isCirclePlayerTurn? circlePlayerClass : xPlayerClass
     markCell(cell, currentClass)
-    
-    
 
     if(checkWin(currentClass)){ 
         endGame(false)
@@ -109,6 +114,7 @@ function markCell(cell, currentClass){
 function checkWin(currentClass){
     return winningCombination.some(combination => {
         return combination.every(index => {
+            
             return tttCells[index].classList.contains(currentClass)
         })
     })
@@ -119,23 +125,30 @@ function endGame(draw){
     
     if (draw) {
         msgText.innerText = `It's a draw!`
+        score.textContent = ''
+        
     } else {
-        msgText.innerText = `${isCirclePlayerTurn ? 'O wins.': 'X wins.'}`
+        
+       // msgText.innerText = `${isCirclePlayerTurn ? 'O wins.': 'X wins.'}`
         // update player
-
-         x.upDateRound()
-         console.log(x.round)
-        // console.log(x.round )
-        userLives.pop()
-        console.log('user life is : ', userLives.length)
-        if(Player.name ===  xPlayerClass){
-            //msg.classList.remove('show')
-            x.upDateRound()
-            console.log(true)
-
+        
+        if(isCirclePlayerTurn){
+            msgText.innerText = 'O wins!'
+            o.upDateScore()
+            score.innerText = `Score: ${o.score}`
+            score.classList.add('show')
+            
+            console.log('o updated', o.score)
+            //console.log(true)
+            
         } else {
-            console.log(false)
+            //console.log('x')
+            msgText.innerText = 'X wins!'
+            x.upDateScore()
+            score.innerText = `Score: ${x.score}`
+            score.classList.add('show')
         }
+
     }
     msg.classList.add('show')
 }

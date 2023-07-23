@@ -6,29 +6,25 @@ body {
     background-image: url('./1600x900-digital-color-shapes_1563221369.jpg');
     background-size: cover;
 }
+.title {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
 
 .wrapper {
     display: flex;
     justify-content: center;
     flex-direction: row;
+    padding: 150px 0 0;
 }
 section {
     display: flex;
     align-items: center;
     width: 450px;
-    background-color: lightblue;
+    background-color: #00cccc;
     height: auto;
-    margin-right: 3px;
     
-}
-aside {
-    display: flex;
-    align-items: center;
-    width: 200px;
-    flex-direction: row;
-    background-color: lightblue;
-    height: auto;
-    margin-left: 5px;
 }
 .cell {
     width: 100px;
@@ -40,6 +36,7 @@ aside {
     display: flex;
     align-items: center;
     position: relative;
+
 }
 
 /** CSS pseudo class to get the X and Circle shape*/
@@ -48,7 +45,7 @@ aside {
     content:'';
     width: 10px;
     height: 60px;
-    background-color: #ffffff;
+    background-color: #00cccc;
     position: absolute;
 }
 
@@ -66,27 +63,16 @@ aside {
 }
 
 .cell.circleShape::before{
-    background-color: #ffffff;
+    background-color: #00cccc;
     width: 70px;
     height: 70px;
 
 }
 .cell.circleShape::after {
-    background-color: #0000ff;
+    background-color: #0b423c;
     width: 50px;
     height: 50px;    
 }
-
-/** Hover effect*/
-/* .cell.cell.xShape::before,
-.cell:not(.xShape):hover::before,
-.cell:not(.xShape):hover::after{
-    background-color: #ff0000;
-
-} */
-
-
-
 
 .msg {
     display: none;
@@ -119,5 +105,11 @@ aside {
 
 
 .msg.show {
+    display: flex;
+}
+.score{
+    display: none;
+}
+.score.show{
     display: flex;
 }

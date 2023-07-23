@@ -8,7 +8,11 @@
     <title>Tic Tac Toe </title>
 </head>  
 <body>
-    <h1>Tic Tac Toe Game</h1>
+    <div class="title">
+        <div>
+            <h1>Tic Tac Toe Game</h1>
+        </div>        
+    </div>
     <div class="wrapper">
         
         <section id="board">
@@ -30,12 +34,11 @@
             
         </section>
         
-        <div id="msg" class="msg">
+    </div>
+    <div id="msg" class="msg">
         <div msg-text></div>
         <button button id="restartGame" onclick="startGame()">Start</button>
-        <h4>score: 85</h4>
-        </div>
+        <h4 id="score" class="score"></h4>
     </div>
-    
-</body>
+</body> 
 </html>
