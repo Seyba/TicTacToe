@@ -9,26 +9,38 @@ body {
 .title {
     display: flex;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
+}
+.title > div {
+    justify-items: center;
+    margin-top: 150px;
+    padding-bottom: 20px;
+}
+.title > div > h1{
+    color: #ffffff;
+    font-size: 40px;
 }
 
 .wrapper {
     display: flex;
     justify-content: center;
     flex-direction: row;
-    padding: 150px 0 0;
+    padding: 20px 0 0;
 }
 section {
     display: flex;
     align-items: center;
-    width: 450px;
+    width: 400px;
     background-color: #00cccc;
     height: auto;
     
 }
+.row1 {
+    margin-left: 5px;
+}
 .cell {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     background-color:   #0b423c;
     margin: 5px;
     justify-content: center;
@@ -38,6 +50,7 @@ section {
     position: relative;
 
 }
+
 
 /** CSS pseudo class to get the X and Circle shape*/
 .cell.xShape::before, 
@@ -73,7 +86,9 @@ section {
     width: 50px;
     height: 50px;    
 }
-
+.cell:hover {
+    cursor: pointer;
+}
 .msg {
     display: none;
     position: fixed;
@@ -90,10 +105,10 @@ section {
 
 }
 .msg button {
-    font-size: 40px;
+    font-size: 25px;
     background: #ffffff;
     border: 1px solid #000000;
-    padding: 10px 50px;
+    padding: 10px 20px;
     cursor: pointer;
 }
 
@@ -102,7 +117,6 @@ section {
     color: #ffffff;
     border-color: #ffffff;
 }
-
 
 .msg.show {
     display: flex;
