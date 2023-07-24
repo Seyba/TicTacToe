@@ -6,6 +6,7 @@ body {
     background-image: url('./1600x900-digital-color-shapes_1563221369.jpg');
     background-size: cover;
 }
+
 .title {
     display: flex;
     justify-content: center;
@@ -19,6 +20,23 @@ body {
 .title > div > h1{
     color: #ffffff;
     font-size: 40px;
+    opacity: 1;
+    animation: titleAnimate 2s linear 2s infinite alternate;
+}
+@keyframes titleAnimate {
+	0% {opacity: 0;}
+    25% {opacity: 0.25;}
+    50% {opacity: 0.50;}
+    55% {opacity: 0.55;}
+    60% {opacity: 0.60;}
+    65% {opacity: 0.65;}
+    70% {opacity: 0.70;}
+    75% {opacity: 0.75;}
+    80% {opacity: 0.80;}
+    85% {opacity: 0.85;}
+    90% {opacity: 0.90;}
+    95% {opacity: 0.95;}
+    100% {opacity: 1;}
 }
 
 .wrapper {
